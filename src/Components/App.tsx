@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import Message from './Message';
 
-const initialState = {
-  name: 'Cher',
-  message: 'she loves ya!'
-};
-// Define a new type for initialState
-type State = Readonly<typeof initialState> 
-
 // Create a Class component
-// Use the angle brackets to pass a data type to the Component
-export default class App extends Component<any>{
+// Use the angle brackets to pass data types to the Component
+export default class App extends Component {
   // Use the componentWillMount lifecycle method to issue work
   //  prior to the component mounting
   UNSAFE_componentWillMount() {
@@ -21,7 +14,8 @@ export default class App extends Component<any>{
   componentDidMount() {
     console.log('Mounted!');
   };
-
+  // Define a readonly state and use TyeScript syntax to
+  //  give it a data type of State and set it equal to initialState
   render() {
     // data type: array
     let firstValue: string[] = ['Alice', 'Bobby', 'Cher']
@@ -39,7 +33,7 @@ export default class App extends Component<any>{
     return(
       <div>
         <p>The value of {firstValue} is of {typeof firstValue} type!</p>
-        <Message name='Bobby' message="This is a simple message!"/>
+        <Message />
       </div>
     );
   };
